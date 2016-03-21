@@ -30,7 +30,7 @@ bool is_prime(int n)
 // factorization of a number 
 int* prime_factorization(int n)
 {
-  int* arr = calloc(n, sizeof(int))
+  int* arr = calloc(n, sizeof(int));
   int i = 1;
   int p = n;
 
