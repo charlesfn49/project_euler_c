@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+  int n = 3;
+  int m = 5;
+  int max = 1000;
+
+  // get natural numbers divisible by n or m
+  int sum = 0;
+  for(int i = 1; i < max; i++)
+  {
+    if(i % n == 0 || i % m == 0)
+    {
+      sum += i;
+    }
+  }
+
+  printf("%d\n", sum);
+}

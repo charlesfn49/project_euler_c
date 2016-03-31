@@ -26,6 +26,17 @@ bool is_prime(int n)
   else return is_prime_over_2(n);
 }
 
+
+int largest_prime_factor(int n)
+{
+  for(int m = sqrt(n); m > 1; m--)
+  {
+    if(n % m == 0 && is_prime(m)) return m;
+  }
+  return n;
+}
+
+
 // returns anew array representing the prime
 // factorization of a number 
 int* prime_factorization(int n)
@@ -49,7 +60,7 @@ int* prime_factorization(int n)
     {
       while(n % m == 0)
       {
-	printf("%d\n", n);
+	printf("%d\n", m);
 	n /= m;
 	arr[i]++;
       }
@@ -71,7 +82,7 @@ int* prime_factorization_factorial(int* arr, int n)
   while(n > 1)
   {
     int* arr_aux = calloc(n, sizeof(int));
-    prime_factorization(arr_aux, n);
+    arr_aux = prime_factorization(n);
     for(int i = 0; i < arr_aux[0]; i++)
       printf("%d, ", arr[i]);
     printf("\n");
@@ -82,10 +93,16 @@ int* prime_factorization_factorial(int* arr, int n)
 }
 
 // factorial function
-unsigned long factorial(unsigned long n)
+unsigned long factorial(unsigned char n)
 {
   if(n == 0) return 1;
   else return n * factorial(n-1);
+}
+
+unsigned long fibonacci(unsigned char n)
+{
+  if(n == 0 || n == 1) return 1ul;
+  else return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 // sigmoid function
@@ -95,9 +112,9 @@ double sigmoid(double n)
 }
 
 // 1 iteration of newton's approximation method
-double approx_zero(double* function(double), double* derivative(double), double n)
+double approx_zero(double function(double), double derivative(double), double n)
 {
-  return 1 - functions(n) / derivative(n);
+  return n - function(n) / derivative(n);
 }
 
 
