@@ -1,26 +1,20 @@
 #include <stdio.h>
 
-
 /**
- * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
- * Find the sum of all the multiples of 3 or 5 below 1000.
+ * Project Euler Problem 1:
+ *   If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+ *   Find the sum of all the multiples of 3 or 5 below 1000.
+ * 
+ *   Answer: 233168
  */
-
 int main()
 {
-  int n = 3;
-  int m = 5;
-  int max = 1000;
-
-  // get natural numbers divisible by n or m
-  int sum = 0;
-  for(int i = 1; i < max; i++)
+  unsigned short n = 1000, sum = 0;
+  // iterate over all natural numbers less than 1000
+  // if n is divisible by 3 or 5 add it to the sum
+  for(; n > 0 ; n--)
   {
-    if(i % n == 0 || i % m == 0)
-    {
-      sum += i;
-    }
+    if(n % 3 == 0 || n % 5 == 0) sum += n;
   }
-
   printf("%d\n", sum);
 }
