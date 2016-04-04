@@ -1,8 +1,0 @@
-#include <stdio.h>
-#include "euler_math.c"
-
-
-int main()
-{
-  printf("%lu\n", largest_prime_factor(13195));//600851475143u));
-}
