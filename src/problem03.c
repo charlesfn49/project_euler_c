@@ -47,4 +47,5 @@ unsigned int largest_prime_factor(unsigned long n)
 int main()
 {
   printf("%d\n", largest_prime_factor(600851475143lu));
+  return 0;
 }

@@ -72,4 +72,5 @@ unsigned long max_palindrome_product(unsigned char max_digits)
 int main()
 {
   printf("%lu\n", max_palindrome_product(3));
+  return 0;
 }

@@ -3,8 +3,13 @@
 #include <stdlib.h>
 
 /**
- * Formal Documentation Here.
+ * The int_arrays library is the by product of solutions in project euler. All functions
+ * take an int* arr as an argument wherein the value held at *arr = the length of the
+ * array that is the number of elements int the array including *arr or arr[0]
+ * number of elements: i.e {5, 1, 2, 3, 4} has a length of 5; thus, arr[0] == 5.
  *
+ * The library is written to work with arrays of 32 bit signed integers in order to not
+ * place excessive restrictions on the byte size of values.
  */
 
 // sums the data of an int array
@@ -22,9 +27,9 @@ int sum_array(int* arr)
 // the size parameter considered in the first index (0)
 void print_array(int* arr)
 {
-  for(int i = 0; i < arr[0]; i++)
+  for(int i = 1; i < arr[0]; i++)
     printf("%d, ", arr[i]);
-  printf("\b\b\n");
+  printf("\b\b  \n");
 }
 
 // converts the array data into the given base (with
@@ -39,7 +44,7 @@ int* carry_array_values(int* arr, int base)
     arr[i] %= base;
     arr[i-1] += carry;
   }
- 
+  
   // get info required for array resizing
   int extension = 0;
   int n = arr[1];
@@ -50,15 +55,16 @@ int* carry_array_values(int* arr, int base)
   }
 
   // resize array 
-  int * new_arr = calloc(extension + arr[0], sizeof(int));
+  int* new_arr = calloc(extension + arr[0], sizeof(int));
   new_arr[0] = extension + arr[0];
+  
  
   // copy old data into new allocation
   for(int i = 1; i < arr[0]; i++)
   {
     new_arr[i + extension] = arr[i];
   }
-
+  
   // carry data in updated array over
   for(int i = 1 + extension; i > 1; i--)
   {
@@ -66,7 +72,7 @@ int* carry_array_values(int* arr, int base)
     new_arr[i] %= base;
     new_arr[i-1] += carry;
   }
-
+  
   return new_arr;
 }
 
@@ -74,7 +80,7 @@ int* carry_array_values(int* arr, int base)
 // however, does not manage carrying out of number places
 // and destroys the larger (length-wise) array's data
 // (see carry_array_values)
-int* sum_arrays(int* arr1, int* arr2)
+int* add_arrays(int* arr1, int* arr2)
 {
   if(arr1[0] > arr2[0])
   {

@@ -93,4 +93,5 @@ unsigned long smallest_divisible_number_logarithms(unsigned char k)
 int main()
 {
   printf("%lu\n", smallest_divisible_number(20));
+  return 0;
 }

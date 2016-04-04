@@ -20,4 +20,5 @@ int main()
     if(n % 2 == 0) sum += n; // add to sum if applicable
   }   
   printf("%d\n", sum);
+  return 0;
 }
