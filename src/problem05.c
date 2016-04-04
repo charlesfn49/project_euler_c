@@ -69,8 +69,8 @@ bool is_prime(int n)
   else return is_prime_over_2(n);
 }
 
-// The magic of logarithms applied to the previous solution.
-// Note the heavy reliance on library functions.
+// The magic of logarithms applied to the previous solution
+//   * note the heavy reliance on library functions
 unsigned long smallest_divisible_number_logarithms(unsigned char k)
 {
   unsigned long n = 1;
